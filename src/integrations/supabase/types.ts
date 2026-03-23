@@ -14,7 +14,122 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      applications: {
+        Row: {
+          cover_letter_url: string | null
+          created_at: string
+          degree_cert_url: string | null
+          highschool_cert_url: string | null
+          id: string
+          job_id: string
+          other_testimonials_url: string | null
+          resume_url: string | null
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          cover_letter_url?: string | null
+          created_at?: string
+          degree_cert_url?: string | null
+          highschool_cert_url?: string | null
+          id?: string
+          job_id: string
+          other_testimonials_url?: string | null
+          resume_url?: string | null
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          cover_letter_url?: string | null
+          created_at?: string
+          degree_cert_url?: string | null
+          highschool_cert_url?: string | null
+          id?: string
+          job_id?: string
+          other_testimonials_url?: string | null
+          resume_url?: string | null
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "applications_job_id_fkey"
+            columns: ["job_id"]
+            isOneToOne: false
+            referencedRelation: "jobs"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      jobs: {
+        Row: {
+          closing_date: string | null
+          created_at: string
+          department: string
+          description: string
+          employment_type: string
+          id: string
+          is_active: boolean
+          location: string
+          requirements: string
+          title: string
+          updated_at: string
+        }
+        Insert: {
+          closing_date?: string | null
+          created_at?: string
+          department?: string
+          description?: string
+          employment_type?: string
+          id?: string
+          is_active?: boolean
+          location?: string
+          requirements?: string
+          title: string
+          updated_at?: string
+        }
+        Update: {
+          closing_date?: string | null
+          created_at?: string
+          department?: string
+          description?: string
+          employment_type?: string
+          id?: string
+          is_active?: boolean
+          location?: string
+          requirements?: string
+          title?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          full_name: string
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          full_name?: string
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          full_name?: string
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
